@@ -16,3 +16,5 @@ huggingface-hub==0.20.3
 pydantic==2.7.1
 requests
 python-dotenv
+
+beautifulsoup4
