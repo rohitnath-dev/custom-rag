@@ -1,55 +1,70 @@
-import streamlit as st
+import os
 import time
+import streamlit as st
+from rag import create_rag_app
 
-# import your RAG pipeline
-from rag import app as rag_app
-
-st.set_page_config(page_title="AI Assistant")
-
-st.title("You Can Learn AI Assistant")
-st.write(
-    "You can ask anything from videos, notes, contents or your class studies."
+st.set_page_config(
+    page_title="Assistant",
+    page_icon="◈",
+    layout="centered"
 )
 
-# ---------- SESSION ----------
+identifier = os.environ.get("BUSINESS_ID")
+
+if not identifier:
+    st.error("Application configuration is missing.")
+    st.stop()
+
+rag_app = create_rag_app(identifier)
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# ---------- DISPLAY CHAT ----------
-for msg in st.session_state.messages:
-    with st.chat_message(msg["role"]):
-        st.markdown(msg["content"])
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
-# ---------- INPUT ----------
-user_input = st.chat_input("Ask your doubt...")
+user_input = st.chat_input("Type a message...")
 
 if user_input:
-    # show user message
-    st.session_state.messages.append({"role": "user", "content": user_input})
+    st.session_state.messages.append({
+        "role": "user",
+        "content": user_input
+    })
 
     with st.chat_message("user"):
         st.markdown(user_input)
 
-    # generate response
-    result = rag_app.invoke({
-        "question": user_input,
-        "docs": [],
-        "relevant_docs": [],
-        "context": "",
-        "answer": "",
-    })
-
-    answer = result["answer"]
-
-    # typing animation
     with st.chat_message("assistant"):
         placeholder = st.empty()
-        typed = ""
 
-        for char in answer:
-            typed += char
-            placeholder.markdown(typed)
-            time.sleep(0.01)
+        try:
+            result = rag_app.invoke({
+                "question": user_input,
+                "docs": [],
+                "relevant_docs": [],
+                "context": "",
+                "answer": "",
+            })
 
-    # save AI message
-    st.session_state.messages.append({"role": "assistant", "content": answer})
+            answer = result["answer"]
+            displayed_text = ""
+
+            for character in answer:
+                displayed_text += character
+                placeholder.markdown(displayed_text)
+                time.sleep(0.01)
+
+            st.session_state.messages.append({
+                "role": "assistant",
+                "content": answer
+            })
+
+        except Exception:
+            answer = "Unable to process the request."
+            placeholder.markdown(answer)
+
+            st.session_state.messages.append({
+                "role": "assistant",
+                "content": answer
+            })
