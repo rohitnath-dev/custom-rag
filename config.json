@@ -1,11 +1,11 @@
 {
   "clinic": {
-    "business_name": "Laksha Care",
+    "business_name": "Advanced Dental Clinic",
     "ui": {
-      "page_title": "Laksha Care | AI Assistant",
-      "welcome_title": "Chat with Laksha Care",
+      "page_title": "Advanced Dental Clinic | AI Assistant",
+      "welcome_title": "Chat with Advanced Dental Clinic",
       "subtitle": "Ask us about our services, treatments, and appointments.",
-      "input_placeholder": "Ask Laksha Care a question..."
+      "input_placeholder": "Ask Advanced Dental Clinic a question..."
     },
     "data file": "data/clinic_data.txt",
     "system prompt": "prompts/clinic.txt"
