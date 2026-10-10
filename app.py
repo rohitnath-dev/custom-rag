@@ -60,7 +60,8 @@ if user_input:
                 "content": answer
             })
 
-        except Exception:
+        except Exception as e:
+        print(f"CHATBOT ERROR: {e!r}", flush=True)
             answer = "Unable to process the request."
             placeholder.markdown(answer)
 
