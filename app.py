@@ -44,26 +44,36 @@ st.markdown(
     <style>
     .block-container {
         max-width: 820px;
-        padding: 2rem 1.25rem 2rem;
+        padding: 1.5rem 1.25rem 1rem;
+    }
+
+    .welcome-section {
+        min-height: 65vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 1rem 0;
+        box-sizing: border-box;
     }
 
     .chat-header {
-        font-size: clamp(1.5rem, 4vw, 2rem);
+        width: 100%;
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
         font-weight: 650;
         line-height: 1.3;
-        text-align: center;
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.8rem;
         overflow-wrap: anywhere;
     }
 
     .chat-subtitle {
-        font-size: 1rem;
-        line-height: 1.6;
-        text-align: center;
+        max-width: 600px;
+        width: 100%;
+        font-size: clamp(0.95rem, 3vw, 1.1rem);
+        line-height: 1.65;
         color: var(--text-color);
         opacity: 0.75;
-        margin: 0 auto 1.8rem;
-        max-width: 600px;
         overflow-wrap: anywhere;
     }
 
@@ -79,12 +89,21 @@ st.markdown(
 
     @media (max-width: 600px) {
         .block-container {
-            padding: 1.25rem 0.75rem 1.5rem;
+            padding: 0.75rem 0.75rem 1rem;
+        }
+
+        .welcome-section {
+            min-height: 55vh;
+            padding: 1rem 0.25rem;
+        }
+
+        .chat-header {
+            font-size: clamp(1.4rem, 6vw, 1.8rem);
         }
 
         .chat-subtitle {
             font-size: 0.95rem;
-            margin-bottom: 1.25rem;
+            line-height: 1.6;
         }
 
         [data-testid="stChatMessage"] {
@@ -98,16 +117,16 @@ st.markdown(
 
 
 st.markdown(
-    f'<div class="chat-header">'
-    f'{ui_config.get("welcome_title", "Business Assistant")}'
-    f'</div>',
-    unsafe_allow_html=True,
-)
-
-st.markdown(
-    f'<div class="chat-subtitle">'
-    f'{ui_config.get("subtitle", "How can we help you?")}'
-    f'</div>',
+    f"""
+    <section class="welcome-section">
+        <div class="chat-header">
+            {ui_config.get("welcome_title", "Business Assistant")}
+        </div>
+        <div class="chat-subtitle">
+            {ui_config.get("subtitle", "How can we help you?")}
+        </div>
+    </section>
+    """,
     unsafe_allow_html=True,
 )
 
