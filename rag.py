@@ -22,8 +22,7 @@ from langgraph.graph import StateGraph, START, END
 # -------------------- PATHS --------------------
 
 BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR / "data"
-PROMPTS_DIR = BASE_DIR / "prompts"
+CONFIG_PATH = BASE_DIR / "config.json"
 
 
 # -------------------- LLM --------------------
@@ -64,17 +63,34 @@ def load_configuration(identifier: str):
     if not re.fullmatch(r"[a-zA-Z0-9_-]+", identifier):
         raise ValueError("Invalid identifier")
 
-    data_path = DATA_DIR / f"{identifier}.txt"
-    prompt_path = PROMPTS_DIR / f"{identifier}.txt"
+    if not CONFIG_PATH.is_file():
+        raise FileNotFoundError("Configuration file is missing")
+
+    with CONFIG_PATH.open(encoding="utf-8") as file:
+        configurations = json.load(file)
+
+    if identifier not in configurations:
+        raise ValueError("Unknown configuration identifier")
+
+    settings = configurations[identifier]
+
+    data_path = (BASE_DIR / settings["data file"]).resolve()
+    prompt_path = (BASE_DIR / settings["system prompt"]).resolve()
+
+    if not data_path.is_relative_to(BASE_DIR):
+        raise ValueError("Invalid data path")
+
+    if not prompt_path.is_relative_to(BASE_DIR):
+        raise ValueError("Invalid prompt path")
 
     if not data_path.is_file() or not prompt_path.is_file():
-        raise FileNotFoundError("Required configuration files are unavailable")
+        raise FileNotFoundError("Required files are missing")
 
     data = data_path.read_text(encoding="utf-8").strip()
     system_prompt = prompt_path.read_text(encoding="utf-8").strip()
 
     if not data or not system_prompt:
-        raise ValueError("Configuration files must contain content")
+        raise ValueError("Configuration files cannot be empty")
 
     return data, system_prompt
 
