@@ -1,11 +1,11 @@
 {
   "clinic": {
-    "business_name": "Advanced Dental Clinic",
+    "business_name": "Laksha Care",
     "ui": {
-      "page_title": "Advanced Dental Clinic | AI Assistant",
-      "welcome_title": "Chat with Advanced Dental Clinic",
+      "page_title": "Laksha Care | AI Assistant",
+      "welcome_title": "Chat with Laksha Care",
       "subtitle": "Ask us about our services, treatments, and appointments.",
-      "input_placeholder": "Ask Advanced Dental Clinic a question..."
+      "input_placeholder": "Ask Laksha Care a question..."
     },
     "data file": "data/clinic_data.txt",
     "system prompt": "prompts/clinic.txt"
@@ -22,12 +22,12 @@
     "system prompt": "prompts/abc_coaching.txt"
   },
   "dental": {
-    "business_name": "XYZ Dental",
+    "business_name": "Advanced Dental Clinic",
     "ui": {
-      "page_title": "XYZ Dental | AI Assistant",
-      "welcome_title": "Chat with XYZ Dental",
-      "subtitle": "Ask us about dental services and appointments.",
-      "input_placeholder": "Ask about dental services..."
+      "page_title": "Advanced Dental Clinic | AI Assistant",
+      "welcome_title": "Chat with Advanced Dental Clinic",
+      "subtitle": "Ask us about dental services, treatments, and appointments.",
+      "input_placeholder": "Ask Advanced Dental Clinic a question..."
     },
     "data file": "data/dental_clinic.txt",
     "system prompt": "prompts/dental_assistant.txt"
