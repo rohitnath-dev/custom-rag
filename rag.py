@@ -49,6 +49,9 @@ class OpenRouterLLM:
             timeout=60,
         )
 
+        if not response.ok:
+            print(f"OPENROUTER STATUS: {response.status_code}", flush=True)
+            print(f"OPENROUTER BODY: {response.text[:1500]}", flush=True)
         response.raise_for_status()
         result = response.json()
 
