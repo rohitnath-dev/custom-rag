@@ -28,7 +28,7 @@ CONFIG_PATH = BASE_DIR / "config.json"
 # -------------------- LLM --------------------
 
 class OpenRouterLLM:
-    def __init__(self, model="openai/gpt-4o-mini"):
+    def __init__(self, model="meta-llama/llama-3.3-70b-instruct:free"):
         self.api_key = st.secrets["OPENROUTER_API_KEY"]
         self.model = model
         self.url = "https://openrouter.ai/api/v1/chat/completions"
