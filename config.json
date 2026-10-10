@@ -1,13 +1,34 @@
 {
   "clinic": {
+    "business_name": "Laksha Care",
+    "ui": {
+      "page_title": "Laksha Care | AI Assistant",
+      "welcome_title": "Chat with Laksha Care",
+      "subtitle": "Ask us about our services, treatments, and appointments.",
+      "input_placeholder": "Ask Laksha Care a question..."
+    },
     "data file": "data/clinic_data.txt",
     "system prompt": "prompts/clinic.txt"
   },
   "coaching": {
+    "business_name": "ABC Coaching",
+    "ui": {
+      "page_title": "ABC Coaching | AI Assistant",
+      "welcome_title": "Chat with ABC Coaching",
+      "subtitle": "Ask us about courses, admissions, and classes.",
+      "input_placeholder": "Ask about courses or admissions..."
+    },
     "data file": "data/abc_coaching.txt",
     "system prompt": "prompts/abc_coaching.txt"
   },
   "dental": {
+    "business_name": "XYZ Dental",
+    "ui": {
+      "page_title": "XYZ Dental | AI Assistant",
+      "welcome_title": "Chat with XYZ Dental",
+      "subtitle": "Ask us about dental services and appointments.",
+      "input_placeholder": "Ask about dental services..."
+    },
     "data file": "data/xyz_dental.txt",
     "system prompt": "prompts/xyz_dental.txt"
   }
