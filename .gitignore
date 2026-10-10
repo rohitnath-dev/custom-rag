@@ -16,7 +16,6 @@ env/
 .streamlit/secrets.toml
 
 # Generated data and indexes
-data/
 vector_store/
 faiss_index/
 *.faiss
