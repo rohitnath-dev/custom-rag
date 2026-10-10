@@ -29,7 +29,7 @@
       "subtitle": "Ask us about dental services and appointments.",
       "input_placeholder": "Ask about dental services..."
     },
-    "data file": "data/xyz_dental.txt",
-    "system prompt": "prompts/xyz_dental.txt"
+    "data file": "data/dental_clinic.txt",
+    "system prompt": "prompts/dental_assistant.txt"
   }
 }
