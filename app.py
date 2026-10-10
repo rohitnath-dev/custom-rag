@@ -9,7 +9,7 @@ st.set_page_config(
     layout="centered"
 )
 
-identifier = os.environ.get("BUSINESS_ID")
+identifier = st.secrets.get("BUSINESS_ID", os.getenv("BUSINESS_ID"))
 
 if not identifier:
     st.error("Application configuration is missing.")
