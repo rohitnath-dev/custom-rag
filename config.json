@@ -31,5 +31,16 @@
     },
     "data file": "data/travel_agency.txt",
     "system prompt": "prompts/travel_agency.txt"
+  },
+  "restaurant": {
+    "business_name": "Restaurant",
+    "ui": {
+      "page_title": "Restaurant | AI Assistant",
+      "welcome_title": "Welcome to Our Restaurant",
+      "subtitle": "Ask us about our menu, prices, timings, and services.",
+      "input_placeholder": "Ask about our menu..."
+    },
+    "data file": "data/restaurant_data.txt",
+    "system prompt": "prompts/restaurant_assistant.txt"
   }
 }
