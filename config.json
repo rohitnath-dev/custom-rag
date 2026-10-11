@@ -10,17 +10,6 @@
     "data file": "data/clinic_data.txt",
     "system prompt": "prompts/clinic.txt"
   },
-  "coaching": {
-    "business_name": "ABC Coaching",
-    "ui": {
-      "page_title": "ABC Coaching | AI Assistant",
-      "welcome_title": "Chat with ABC Coaching",
-      "subtitle": "Ask us about courses, admissions, and classes.",
-      "input_placeholder": "Ask about courses or admissions..."
-    },
-    "data file": "data/abc_coaching.txt",
-    "system prompt": "prompts/abc_coaching.txt"
-  },
   "dental": {
     "business_name": "Advanced Dental Clinic",
     "ui": {
@@ -31,5 +20,16 @@
     },
     "data file": "data/dental_clinic.txt",
     "system prompt": "prompts/dental_assistant.txt"
+  },
+  "travel_agency": {
+    "business_name": "Travel Agency",
+    "ui": {
+      "page_title": "Travel Agency | AI Assistant",
+      "welcome_title": "Plan Your Next Trip",
+      "subtitle": "Ask us about tour packages, destinations, and travel services.",
+      "input_placeholder": "Ask about packages or destinations..."
+    },
+    "data file": "data/travel_agency.txt",
+    "system prompt": "prompts/travel_agency.txt"
   }
 }
